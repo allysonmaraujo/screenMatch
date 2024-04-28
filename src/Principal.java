@@ -14,6 +14,7 @@ public class Principal {
         meuFilme.avalia(9.7);
         meuFilme.avalia(6.9);
         meuFilme.avalia(7.9);
+        meuFilme.avalia(8.8);
 
 
         System.out.println("A Media de notas do filme '" + meuFilme.getNome() + "' é " + meuFilme.pegaMedia());
