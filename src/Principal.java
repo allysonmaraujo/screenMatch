@@ -1,24 +1,53 @@
-import br.com.alura.screenmatch.modelos.Filme;
+package br.com.alura.screenmatch.modelos;
 
-public class Principal {
-    public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("O Poderoso Chefão");
-        meuFilme.setAnoDeLancamento(1970);
-        meuFilme.setDuracaoEmMinutos(180);
+public class Filme {
+    private String nome;
+    private int anoDeLancamento;
+    private boolean incluidNoPlano;
+    private double somaDasAvaliacoes;
+    private int totalDeAvaliacoes;
+    private int duracaoEmMinutos;
 
+    public int getTotalDeAvaliacoes(){
+        return totalDeAvaliacoes;
+    }
 
-        meuFilme.exibeFichaTecnica();
-        meuFilme.avalia(8);
-        meuFilme.avalia(9.7);
-        meuFilme.avalia(6.9);
-        meuFilme.avalia(7.9);
+    public double getSomaDasAvaliacoes(){
+        return somaDasAvaliacoes;
+    }
 
+    public String getNome() {
+        return nome;
+    }
 
-        System.out.println("A Media de notas do filme '" + meuFilme.getNome() + "' é " + meuFilme.pegaMedia());
-        System.out.println("A soma das avaliações é: " + meuFilme.getSomaDasAvaliacoes());
-        System.out.println("O numero total de avaliações é : " + meuFilme.getTotalDeAvaliacoes());
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
+    public void setDuracaoEmMinutos(int duracaoEmMinutos) {
+        this.duracaoEmMinutos = duracaoEmMinutos;
+    }
 
+    public void setIncluidNoPlano(boolean incluidNoPlano) {
+        this.incluidNoPlano = incluidNoPlano;
+    }
+
+    public void setAnoDeLancamento(int anoDeLancamento) {
+        this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public void exibeFichaTecnica(){
+        System.out.println("Nome do filme: " + nome);
+        System.out.println("Ano de lançamento: " + anoDeLancamento);
+        System.out.println("Duração em minutos: " + duracaoEmMinutos);
+    }
+
+    public void avalia(double nota){
+        somaDasAvaliacoes += nota;
+        totalDeAvaliacoes++;
+    }
+
+    public double pegaMedia(){
+        return somaDasAvaliacoes / totalDeAvaliacoes;
     }
 }
